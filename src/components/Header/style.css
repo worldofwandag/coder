@@ -114,7 +114,7 @@ header .header--hash {
   border-radius: 1294px;
   opacity: 0;
   /* background: var(--main); */
-  background: rgba(0, 102, 128, 0.753);
+  background: rgba(0, 102, 128, 0.418);
   filter: blur(200px);
   height: 60vh;
   width: 70vw;
@@ -128,15 +128,17 @@ header .header--hash {
 .background--button--glow {
   border-radius: 100px;
   opacity: 0;
-  background: rgba(58, 253, 100, 0.349);
-  filter: blur(30px);
+  background: rgba(246, 58, 253, 0.212);
+  filter: blur(70px);
   height: 10vh;
   width: 9vw;
   position: absolute;
   top: 59px;
   left: 50px;
   transform: translate(-10%, -20%);
-  animation: blinkGlow 12s ease-in-out infinite;
+  /* animation: blinkGlow 12s ease-in-out infinite; */
+  animation: scrollAnim 4s infinite forwards;
+
 }
 
 .jw--icon {

@@ -47,12 +47,16 @@
   padding-left: 20%;
 }
 
+.projects--tap {
+  display:none;
+}
+
 .background--glow {
   border-radius: 1294px;
   opacity: 0;
   background: var(--main);
   filter: blur(200px);
-  height: 80vh;
+  height: 100vh;
   width: 70vw;
   position: absolute;
   top: 50%;
@@ -73,6 +77,8 @@
     opacity: 0;
   }
 }
+
+
 
 @media (max-width: 1500px) {
   .projects {
@@ -109,5 +115,11 @@
 
   .projects--grid--content--heading h2 {
     font-size: 36px;
+  }
+}
+
+@media (max-width: 500px) {
+  .projects--tap {
+    display:block;
   }
 }
