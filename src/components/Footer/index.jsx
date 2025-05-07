@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import "./style.css"
 import BackgroundLines from "../BackgroundLines"
 import ParaWriting from "../ParaWriting"
@@ -21,10 +21,19 @@ export default function Footer() {
   const [isSending, setIsSending] = useState(false)
   const [sendStatus, setSendStatus] = useState({ processed: false, message: "", variant: "success" })
   const [hasAnimated, setHasAnimated] = useState(false)
-  const [fieldValues, setFieldValues] = useState({
+  
+  // Store actual form values
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    message: ""
+  })
+  
+  // Track which fields have been interacted with (for animation)
+  const [fieldInteracted, setFieldInteracted] = useState({
     name: false,
     email: false,
-    message: false,
+    message: false
   })
 
   const handleComplete = () => {
@@ -76,10 +85,16 @@ export default function Footer() {
     },
   ]
 
-  const handleInputClick = (stateKey) => {
-    setFieldValues({
-      ...fieldValues,
+  const handleInputChange = (stateKey, value) => {
+    // Update both the interaction state and form values
+    setFieldInteracted({
+      ...fieldInteracted,
       [stateKey]: true,
+    })
+    
+    setFormValues({
+      ...formValues,
+      [stateKey]: value
     })
   }
 
@@ -89,8 +104,9 @@ export default function Footer() {
     }, 5000)
 
   const sendEmail = async () => {
+    // Check if any fields are empty
     const requiredFields = ["name", "email", "message"]
-    const missingFields = requiredFields.filter((field) => !fieldValues[field])
+    const missingFields = requiredFields.filter((field) => !formValues[field])
 
     if (missingFields.length > 0) {
       setSendStatus({ processed: true, variant: "error", message: "Not all fields were filled" })
@@ -98,9 +114,11 @@ export default function Footer() {
       return
     }
 
+    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(fieldValues.email)) {
+    if (!emailRegex.test(formValues.email)) {
       setSendStatus({ processed: true, variant: "error", message: "Invalid email" })
+      timeoutAlert()
       return
     }
 
@@ -108,12 +126,15 @@ export default function Footer() {
     try {
       const { serviceId, templateid, publicKey } = emailjsconfig
 
-      console.log("trigger")
-
       const templateParams = {
-        name: fieldValues.name,
-        email: fieldValues.email,
-        message: fieldValues.message,
+        name: formValues.name,
+        email: formValues.email,
+        message: formValues.message,
+      }
+
+      // Initialize EmailJS if not already initialized
+      if (!emailjs.init) {
+        emailjs.init(publicKey)
       }
 
       const response = await emailjs.send(serviceId, templateid, templateParams, publicKey)
@@ -121,10 +142,17 @@ export default function Footer() {
       console.log("Email sent successfully:", response)
       setIsSending(false)
       setSendStatus({ processed: true, variant: "success", message: "Success!" })
+      
+      // Clear form after successful submission
+      setFormValues({
+        name: "",
+        email: "",
+        message: ""
+      })
     } catch (error) {
       console.error("Error sending email:", error)
       setIsSending(false)
-      setSendStatus({ processed: true, variant: "error", message: "Error" })
+      setSendStatus({ processed: true, variant: "error", message: "Error sending email" })
     }
 
     timeoutAlert()
@@ -144,7 +172,26 @@ export default function Footer() {
           {inputFields.map((field, index) => (
             <motion.div key={index} initial="hidden" animate={controls} variants={opacityVariant} transition={{ duration: 1, delay: 0.5 * (index + 1) }} className="input--div">
               <label htmlFor={field.id}>{field.label}</label>
-              {field.type === "textarea" ? <textarea name={field.id} id={field.id} placeholder={field.placeholder} rows={field.rows} wrap={field.wrap} onClick={() => handleInputClick(field.stateKey)}></textarea> : <input type={field.type} name={field.id} id={field.id} placeholder={field.placeholder} onClick={() => handleInputClick(field.stateKey)} />}
+              {field.type === "textarea" ? (
+                <textarea 
+                  name={field.id} 
+                  id={field.id} 
+                  placeholder={field.placeholder} 
+                  rows={field.rows} 
+                  wrap={field.wrap} 
+                  value={formValues[field.stateKey]}
+                  onChange={(e) => handleInputChange(field.stateKey, e.target.value)}
+                />
+              ) : (
+                <input 
+                  type={field.type} 
+                  name={field.id} 
+                  id={field.id} 
+                  placeholder={field.placeholder} 
+                  value={formValues[field.stateKey]}
+                  onChange={(e) => handleInputChange(field.stateKey, e.target.value)}
+                />
+              )}
               <motion.div
                 initial="hidden"
                 animate={controls}
@@ -159,7 +206,7 @@ export default function Footer() {
               >
                 <motion.div
                   initial="hidden"
-                  animate={fieldValues[field.stateKey] && "visible"}
+                  animate={fieldInteracted[field.stateKey] && "visible"}
                   variants={inputFieldLineVariant}
                   transition={{
                     type: "spring",
@@ -178,10 +225,8 @@ export default function Footer() {
 
       <motion.div initial="hidden" animate={controls} variants={opacityVariant} transition={{ duration: 1, delay: 2.5 }} className="footer--bottom" onAnimationComplete={() => handleComplete()}>
         <p>Copyright © {new Date().getFullYear()} Jonathan Wandag</p>
-        <p><a href="#">
-        
-        Back to Top
-        </a>
+        <p>
+          <a href="#">Back to Top</a>
         </p>
         <p>
           <Time delay={3} />

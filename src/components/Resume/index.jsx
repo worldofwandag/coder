@@ -70,13 +70,13 @@ export default function Resume() {
                 </ScrambleText>
               </h4>
               <motion.div initial="hidden" animate={controls} variants={blurVariants} transition={{ duration: 1, delay: 0.5 }} onAnimationComplete={() => handleComplete()} className="resume--grid--detail--data--name--icons">
-                <a href="" target="_blank" rel="noreferrer">
+                <a href="https://github.com/worldofwandag" target="_blank" rel="noreferrer">
                   <Icon img={githubIcon} />
                 </a>
-                <a href="" target="_blank" rel="noreferrer">
+                <a href="https://www.linkedin.com/in/worldofwandag/" target="_blank" rel="noreferrer">
                   <Icon img={linkedinIcon} />
                 </a>
-                <a href="" target="_blank" rel="noreferrer">
+                <a href="#resume" rel="noreferrer">
                   <Icon img={fileIcon} />
                 </a>
               </motion.div>
