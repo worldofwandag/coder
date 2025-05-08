@@ -9,7 +9,7 @@ import { useInView } from "react-intersection-observer";
 
 
 import work1 from "../../assets/Images/summarist-mock.png";
-import work2 from "../../assets/Images/skinstric-mockup.png";
+import work2 from "../../assets/Images/skinstric-mock.png";
 import work3 from "../../assets/Images/library-mockup.png";
 
 export default function Projects() {

@@ -55,11 +55,14 @@
 .workCard--body:hover .workCard--img {
   transform: scale(1);
   filter: blur(5px);
+  
 }
 
 .workCard--body:hover .workCard--description--background {
   opacity: 0.79;
   visibility: visible;
+  /* box-shadow: 12px 12px 12px rgba(0,0,0,0.1),
+  -10px -10px 10px rgba(255, 255, 255, 0.055); */
 }
 
 .workCard--description--background {
@@ -68,7 +71,7 @@
   left: 0%;
   width: 100%;
   height: 110%;
-  background-color: #000000;
+  background-color: BLACK;
   opacity: 0;
   border-radius: 20px;
   filter: blur(10px);
