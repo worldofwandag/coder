@@ -17,6 +17,7 @@ import githubIcon from "../../assets/Icon/github.svg"
 import linkedinIcon from "../../assets/Icon/linkedin.svg"
 import fileIcon from "../../assets/Icon/file.svg"
 
+
 // jsons
 import technicalSkills from "../../constants/technicalSkills.json"
 import technicalSkills2 from "../../constants/technicalSkills2.json"
@@ -76,7 +77,7 @@ export default function Resume() {
                 <a href="https://www.linkedin.com/in/worldofwandag/" target="_blank" rel="noreferrer">
                   <Icon img={linkedinIcon} />
                 </a>
-                <a href="#resume" rel="noreferrer">
+                <a href="/assets/JonathanWandag-Resume.pdf" download="JonathanWandag-Resume.pdf" rel="noreferrer">
                   <Icon img={fileIcon} />
                 </a>
               </motion.div>

@@ -10,7 +10,7 @@ import { useInView } from "react-intersection-observer";
 
 import work1 from "../../assets/Images/summarist-mock.png";
 import work2 from "../../assets/Images/skinstric-mock.png";
-import work3 from "../../assets/Images/library-mockup.png";
+import work3 from "../../assets/Images/ultraverse-mockup.png";
 
 export default function Projects() {
   const controls = useAnimation();
@@ -45,7 +45,7 @@ export default function Projects() {
       client: "Skinstric",
       year: "2025",
       img: work2,
-      title: "AI powered skincare",
+      title: "Skinstric: AI powered skincare",
       stack:
         "NextJS, React, Html, CSS, JavaScript, Tailwind CSS, Typescript, GSAP, Eslint, Vercel",
       detail:
@@ -54,15 +54,15 @@ export default function Projects() {
       git: "https://github.com/worldofwandag/skinstric-wandag/tree/master/src/app",
     },
     {
-      client: "Library",
+      client: "Ultraverse",
       year: "2024",
       img: work3,
-      title: "Library e-commerce App",
-      stack: "Html, CSS, JavaScript, React",
+      title: "Ultraverse: NFT marketplace App",
+      stack: "React, Html, CSS, JavaScript, Tailwind CSS, AoS, React Slick, Vercel",
       detail:
-        "Online Bookstore that allows users to browse and purchase books. Key features include an add to cart function that updates number of items in cart, a sorting dropdown book system which allows user to sort by price or rating, a cart page which updates depending on quanity and price of books, a section for highly rated books, and a responsive design that works on all devices.",
-      link: "https://library-react-jet.vercel.app/",
-      git: "https://github.com/worldofwandag/library-react",
+        "Interactive marketplace for NFT purchases. Key features include React slick carousels, dyanmic API fetching, real-time countdown timer, sorting filter to specify organization of rendered results, a 'follow' button, a 'load more' button, and a responsive design that works on all devices.",
+      link: "https://ultraverse-lilac.vercel.app/",
+      git: "https://github.com/worldofwandag/Ultraverse",
     },
   ];
 
