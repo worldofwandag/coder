@@ -10,7 +10,7 @@ import { useInView } from "react-intersection-observer";
 
 import work1 from "../../assets/Images/summarist-mock.png";
 import work2 from "../../assets/Images/skinstric-mock.png";
-import work3 from "../../assets/Images/ultraverse-mockup.png";
+import work3 from "../../assets/Images/ultraverse-mock.png";
 
 export default function Projects() {
   const controls = useAnimation();
