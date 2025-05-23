@@ -16,7 +16,7 @@ import Icon from "../Icon";
 import githubIcon from "../../assets/Icon/github.svg";
 import linkedinIcon from "../../assets/Icon/linkedin.svg";
 import fileIcon from "../../assets/Icon/file.svg";
-import resumePDF from "../../assets/JonathanWandag-Dev-Resume.pdf";
+import resumePDF from "../../assets/Jonathan-Wandag-Resume-Dev.pdf";
 
 // jsons
 import technicalSkills from "../../constants/technicalSkills.json";
@@ -94,7 +94,7 @@ export default function Resume() {
                 </a>
                 <a
                   href={resumePDF}
-                  download="JonathanWandag-Resume-Dev.pdf"
+                  download="Jonathan-Wandag-Resume-Dev.pdf"
                   rel="noreferrer"
                 >
                   <Icon img={fileIcon} />
