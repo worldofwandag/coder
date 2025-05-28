@@ -23,8 +23,8 @@ function App() {
       {/* <MouseFollower /> */}
       <Header />
       <About />
-      <TechStack />
       <Projects />
+      <TechStack />
       <Resume />
       <Footer />
     </main>

@@ -44,7 +44,7 @@ export default function TechStack() {
         <motion.div initial="hidden" animate={controls} variants={opacityVariant} transition={{ duration: 1, delay: 0.5 }} className="techStackSec--head--title">
           <h3 className="theme--text">
             <ScrambleText shuffle delay={0.5}>
-              03
+              04
             </ScrambleText>{" "}
             <span className="hash">{"//"}</span>{" "}
             <ScrambleText shuffle delay={0.5}>
