@@ -8,9 +8,9 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 
-import work1 from "../../assets/Images/summarist-mock.png";
-import work2 from "../../assets/Images/skinstric-mock.png";
-import work3 from "../../assets/Images/ultraverse-mock.png";
+import work1 from "../../assets/Images/simterview-mock.png";
+import work2 from "../../assets/Images/summarist-mock.png";
+import work3 from "../../assets/Images/skinstric-mock.png";
 
 export default function Projects() {
   const controls = useAnimation();
@@ -29,10 +29,24 @@ export default function Projects() {
   }, [inView, controls]);
 
   const works = [
+
+
+    {
+      client: "SimTerview",
+      year: "2025",
+      img: work1,
+      title: "AI Powered Interview simulation App",
+      stack:
+        "NextJS, React, Vapi, Google Gemini 2.0, CSS, Tailwind CSS, Typescript, Google Gemini 2.0, Firebase, Shadcn, Zod",
+      detail:
+        "Full-Stack mock interview app that allows users to generate the type of interview they would like to participate in (through a simulated phone call powered by Vapi voice), then take their customized vocal interview of the appropriate tech stack, and receive A.I. generated feedback and suggestions via Google Gemini 2.0. The dynamic interview generation system supports 50+ technologies with customizable parameters for role, experience level, and question types (technical, behavioral, mixed). Includes Firebase authentication, real-time transcript display with animated speaking indicators, and comprehensive dashboard for interview history and performance analytics",
+      link: "https://interviewer-ai-two.vercel.app/",
+      git: "https://github.com/worldofwandag/interviewer-ai",
+    },
     {
       client: "Summarist",
       year: "2025",
-      img: work1,
+      img: work2,
       title: "Summarist Audio Book App",
       stack:
         "NextJS, React, Html, CSS, Tailwind CSS, Typescript, Redux Toolkit, Firebase, Stripe using Firebase extension, React Icons, Vercel",
@@ -44,7 +58,7 @@ export default function Projects() {
     {
       client: "Skinstric",
       year: "2025",
-      img: work2,
+      img: work3,
       title: "Skinstric: AI powered skincare",
       stack:
         "NextJS, React, Html, CSS, JavaScript, Tailwind CSS, Typescript, GSAP, Eslint, Vercel",
@@ -53,17 +67,17 @@ export default function Projects() {
       link: "https://skinstric-wandag.vercel.app/",
       git: "https://github.com/worldofwandag/skinstric-wandag/tree/master/src/app",
     },
-    {
-      client: "Ultraverse",
-      year: "2024",
-      img: work3,
-      title: "Ultraverse: NFT marketplace App",
-      stack: "React, Html, CSS, JavaScript, Tailwind CSS, AoS, React Slick, Vercel",
-      detail:
-        "Interactive marketplace for NFT purchases. Key features include React slick carousels, dyanmic API fetching, real-time countdown timer, sorting filter to specify organization of rendered results, a 'follow' button, a 'load more' button, and a responsive design that works on all devices.",
-      link: "https://ultraverse-lilac.vercel.app/",
-      git: "https://github.com/worldofwandag/Ultraverse",
-    },
+    // {
+    //   client: "Ultraverse",
+    //   year: "2024",
+    //   img: work3,
+    //   title: "Ultraverse: NFT marketplace App",
+    //   stack: "React, Html, CSS, JavaScript, Tailwind CSS, AoS, React Slick, Vercel",
+    //   detail:
+    //     "Interactive marketplace for NFT purchases. Key features include React slick carousels, dyanmic API fetching, real-time countdown timer, sorting filter to specify organization of rendered results, a 'follow' button, a 'load more' button, and a responsive design that works on all devices.",
+    //   link: "https://ultraverse-lilac.vercel.app/",
+    //   git: "https://github.com/worldofwandag/Ultraverse",
+    // },
   ];
 
   const opacityVariant = {

@@ -138,7 +138,7 @@ export default function Header() {
         <img src={jwIcon} width={50} className="jw--icon"></img>
         <TextWriting controls={controls} text={"Jonathan_WANDAG"} noblink />
         <br />
-        <TextWriting controls={controls} delay={2.1} text={"Frontend"} noblink />{" "}
+        <TextWriting controls={controls} delay={2.1} text={"Full-Stack"} noblink />{" "}
         <motion.div initial="hidden" animate={controls} variants={nameVariants} className="header--name--sec">
           <TextWriting controls={controls} delay={2.95} text={"DEVELOPER"} noblink />
           <div className="header--name--border">
