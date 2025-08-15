@@ -40,16 +40,16 @@ const techs = [
         "JavaScript library for building user interfaces, particularly single-page applications.",
     },
     {
-      title: "Redux",
+      title: "PostgreSQL",
       icon: reduxIcon,
       detail:
-        "Predictable state container for JavaScript apps, often used with React.",
+        "Powerful, open source object-relational database system that uses and extends the SQL language.",
     },
     {
-      title: "Firebase",
+      title: "ExpressJS",
       icon: firebaseIcon,
       detail:
-        "Platform developed by Google for creating mobile and web applications.",
+        "Minimal and flexible Node.js web application framework that provides a robust set of features.",
     },
     {
       title: "NextJS",
